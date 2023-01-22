@@ -3,81 +3,6 @@ export interface iWeak {
   multiplier: number;
 }
 
-export const weaksBase = [
-  {
-    name: "normal",
-    multiplier: 1,
-  },
-  {
-    name: "fire",
-    multiplier: 1,
-  },
-  {
-    name: "water",
-    multiplier: 1,
-  },
-  {
-    name: "grass",
-    multiplier: 1,
-  },
-  {
-    name: "electric",
-    multiplier: 1,
-  },
-  {
-    name: "rock",
-    multiplier: 1,
-  },
-  {
-    name: "ground",
-    multiplier: 1,
-  },
-  {
-    name: "flying",
-    multiplier: 1,
-  },
-  {
-    name: "poison",
-    multiplier: 1,
-  },
-  {
-    name: "bug",
-    multiplier: 1,
-  },
-  {
-    name: "ice",
-    multiplier: 1,
-  },
-  {
-    name: "fighting",
-    multiplier: 1,
-  },
-  {
-    name: "psychic",
-    multiplier: 1,
-  },
-  {
-    name: "ghost",
-    multiplier: 1,
-  },
-  {
-    name: "dragon",
-    multiplier: 1,
-  },
-  {
-    name: "dark",
-    multiplier: 1,
-  },
-  {
-    name: "steel",
-    multiplier: 1,
-  },
-  {
-    name: "fairy",
-    multiplier: 1,
-  },
-];
-
 export const findWeak = (typeName: string, arrayBase: iWeak[]) => {
   let typeInfo = typesWeaks.find((element) => element.name === typeName);
 
@@ -96,7 +21,7 @@ export const findWeak = (typeName: string, arrayBase: iWeak[]) => {
 
     arrayBase[index].multiplier *= element.multiplier;
   });
-  //   console.log(arrayBase);
+
   return arrayBase;
 };
 

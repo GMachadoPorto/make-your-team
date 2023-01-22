@@ -50,6 +50,10 @@ export const StyledDiv = styled.div`
     display: flex;
     flex-direction: column;
     align-items: center;
+    animation-name: showType;
+    animation-duration: 1s;
+    animation-timing-function: ease;
+    animation-fill-mode: forwards;
 
     @media (min-width: 650px) {
       width: 100%;
@@ -61,6 +65,15 @@ export const StyledDiv = styled.div`
       width: 100%;
       height: 24px;
       border-radius: 4px;
+    }
+  }
+
+  @keyframes showType {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
     }
   }
 `;

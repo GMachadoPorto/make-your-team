@@ -1,4 +1,8 @@
 import { createContext, useState } from "react";
+import {
+  iWeak,
+  findWeak,
+} from "../../components/ModalInfoPoke/TypesModal/handleType";
 import { pokeApi } from "../../services/pokeApi";
 import { iPokeData } from "../PokeContext/interfaces";
 import {
@@ -18,12 +22,15 @@ interface iModalProvider {
   abilityDescription: string;
   atackDescription: string;
   atackGroup: iAtackStats[];
+  pokeWeaks: iWeak[];
+  loadingWeaks: boolean;
   openModal: (data: iPokeData) => void;
   closeModal: () => void;
   handleAbility: (data: string) => void;
   handleAtack: (data: string) => void;
   formAtack: (data: iFormAtack) => void;
   removeAtack: (data: iAtackStats) => void;
+  handleWeak: () => void;
 }
 
 export const ModalContext = createContext({} as iModalProvider);
@@ -38,15 +45,20 @@ export const ModalProvider = ({ children }: iModalProviderProps) => {
     "Descrição do ataque"
   );
   const [atackGroup, setAtackGroup] = useState([] as iAtackStats[]);
+  const [pokeWeaks, setPokeWeaks] = useState([] as iWeak[]);
+  const [loadingWeaks, setLoadingWeaks] = useState(true);
 
   const openModal = (data: iPokeData) => {
-    setModalStatus(true);
     setModalData(data);
+    setModalStatus(true);
   };
 
   const closeModal = () => {
+    setAbilityDescription("Descrição da habilidade");
     setAtackDescription("Descrição do ataque");
     setAtackGroup([]);
+    setPokeWeaks([]);
+    setLoadingWeaks(true);
     setModalStatus(false);
   };
 
@@ -153,6 +165,90 @@ export const ModalProvider = ({ children }: iModalProviderProps) => {
     setAtackGroup(newArray);
   };
 
+  const handleWeak = () => {
+    let newArray = [
+      {
+        name: "normal",
+        multiplier: 1,
+      },
+      {
+        name: "fire",
+        multiplier: 1,
+      },
+      {
+        name: "water",
+        multiplier: 1,
+      },
+      {
+        name: "grass",
+        multiplier: 1,
+      },
+      {
+        name: "electric",
+        multiplier: 1,
+      },
+      {
+        name: "rock",
+        multiplier: 1,
+      },
+      {
+        name: "ground",
+        multiplier: 1,
+      },
+      {
+        name: "flying",
+        multiplier: 1,
+      },
+      {
+        name: "poison",
+        multiplier: 1,
+      },
+      {
+        name: "bug",
+        multiplier: 1,
+      },
+      {
+        name: "ice",
+        multiplier: 1,
+      },
+      {
+        name: "fighting",
+        multiplier: 1,
+      },
+      {
+        name: "psychic",
+        multiplier: 1,
+      },
+      {
+        name: "ghost",
+        multiplier: 1,
+      },
+      {
+        name: "dragon",
+        multiplier: 1,
+      },
+      {
+        name: "dark",
+        multiplier: 1,
+      },
+      {
+        name: "steel",
+        multiplier: 1,
+      },
+      {
+        name: "fairy",
+        multiplier: 1,
+      },
+    ];
+
+    modalData.types.map((element) => {
+      newArray = [...findWeak(element.type.name, newArray)];
+    });
+
+    setPokeWeaks([...newArray]);
+    setLoadingWeaks(false);
+  };
+
   return (
     <ModalContext.Provider
       value={{
@@ -161,12 +257,15 @@ export const ModalProvider = ({ children }: iModalProviderProps) => {
         abilityDescription,
         atackDescription,
         atackGroup,
+        pokeWeaks,
+        loadingWeaks,
         openModal,
         closeModal,
         handleAbility,
         handleAtack,
         formAtack,
         removeAtack,
+        handleWeak,
       }}
     >
       {children}
