@@ -6,6 +6,7 @@ export const StyledSection = styled.section`
 
   > div {
     width: 100%;
+    background-color: var(--color-grey-2);
   }
 
   ul {
@@ -45,10 +46,10 @@ export const StyledSection = styled.section`
       height: 100%;
       width: 8px;
       border-radius: 8px;
-      background-color: #d9d9d9;
+      background-color: var(--color-grey-1);
     }
     &::-webkit-scrollbar-thumb {
-      background-color: #9d0b0b;
+      background-color: var(--color-scroll);
       border-radius: 8px;
     }
   }

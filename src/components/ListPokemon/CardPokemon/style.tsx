@@ -16,7 +16,7 @@ export const StyledLi = styled.li`
   align-items: center;
   justify-content: space-between;
   position: relative;
-  background-color: #d9d9d9;
+  background-color: var(--color-grey-1);
 
   img {
     width: 80px;
@@ -27,6 +27,19 @@ export const StyledLi = styled.li`
     position: absolute;
     top: 8px;
     transform: scale(${(props: iLiProps) => (props.height < 15 ? 1.2 : 1.0)});
+    animation-name: pokeShow;
+    animation-duration: 1s;
+    animation-timing-function: ease;
+    animation-fill-mode: forwards;
+
+    @keyframes pokeShow {
+      from {
+        opacity: 0;
+      }
+      to {
+        opacity: 1;
+      }
+    }
   }
 
   div {

@@ -7,7 +7,7 @@ export const StyledDiv = styled.div`
   display: flex;
   flex-direction: column;
   gap: 12px;
-  background-color: #d9d9d9;
+  background-color: var(--color-grey-2);
 
   @media (min-width: 650px) {
     height: 208px;
@@ -29,7 +29,7 @@ export const StyledDiv = styled.div`
     }
 
     &::-webkit-scrollbar-thumb {
-      background-color: #9d0b0b;
+      background-color: var(--color-scroll);
       border-radius: 8px;
     }
 

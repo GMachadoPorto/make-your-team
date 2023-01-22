@@ -8,7 +8,7 @@ export const StyledModal = styled.div`
   top: 0;
   left: 0;
   z-index: 1;
-  background-color: #00000075;
+  background-color: var(--color-shadow-2);
 
   .modalBody {
     width: 100%;

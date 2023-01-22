@@ -9,7 +9,7 @@ export const StyledSection = styled.section`
     width: 100%;
     height: 100%;
     padding: 8px;
-    background-color: #d9d9d9;
+    background-color: var(--color-grey-2);
   }
 
   ul {
@@ -25,11 +25,32 @@ export const StyledSection = styled.section`
       width: 100%;
       padding: 2px;
       border-radius: 8px;
-      background-color: #ffffff;
+      background-color: var(--color-grey-1);
     }
     &::-webkit-scrollbar-thumb {
-      background-color: #9d0b0b;
+      background-color: var(--color-scroll);
       border-radius: 8px;
+    }
+  }
+
+  .emptyBall {
+    width: 140px;
+    height: 170px;
+    padding: 4px;
+    margin: 0 auto;
+    border-radius: 8px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 12px;
+    position: relative;
+    background-color: var(--color-grey-1);
+
+    img {
+      width: 90px;
+      height: 90px;
+      position: absolute;
+      top: 8px;
     }
   }
 `;

@@ -14,7 +14,7 @@ export const StyledSection = styled.section`
       border: none;
       border-radius: 8px;
       outline: none;
-      background-color: #d9d9d9;
+      background-color: var(--color-grey-2);
     }
 
     button {
@@ -22,7 +22,7 @@ export const StyledSection = styled.section`
       height: 100%;
       padding: 0 16px;
       border-radius: 8px;
-      background-color: #d9d9d9;
+      background-color: var(--color-grey-2);
     }
   }
 
@@ -31,7 +31,7 @@ export const StyledSection = styled.section`
     height: 160px;
     padding: 12px;
     border-radius: 8px;
-    background-color: #d9d9d9;
+    background-color: var(--color-grey-2);
     overflow-y: auto;
   }
 
@@ -43,7 +43,7 @@ export const StyledSection = styled.section`
     display: flex;
     flex-direction: column;
     gap: 8px;
-    background-color: #d9d9d9;
+    background-color: var(--color-grey-2);
   }
 
   li {

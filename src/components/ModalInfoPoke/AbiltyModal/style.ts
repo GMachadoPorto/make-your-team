@@ -10,7 +10,7 @@ export const StyledDiv = styled.div`
     border-radius: 8px;
     border: none;
     outline: none;
-    background-color: #d9d9d9;
+    background-color: var(--color-grey-2);
   }
 
   .description {
@@ -18,7 +18,7 @@ export const StyledDiv = styled.div`
     height: 160px;
     padding: 12px;
     border-radius: 8px;
-    background-color: #d9d9d9;
+    background-color: var(--color-grey-2);
     overflow-y: auto;
   }
 `;

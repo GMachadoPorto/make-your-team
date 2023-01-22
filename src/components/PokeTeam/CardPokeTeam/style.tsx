@@ -6,7 +6,7 @@ interface iLiProps {
 
 export const StyledLi = styled.li`
   width: 140px;
-  height: 95%;
+  height: 170px;
   padding: 4px;
   margin: 0 auto;
   border-radius: 8px;
@@ -15,7 +15,7 @@ export const StyledLi = styled.li`
   align-items: center;
   gap: 12px;
   position: relative;
-  background-color: #b9b9b9;
+  background-color: var(--color-grey-1);
 
   img {
     width: 90px;
@@ -26,6 +26,19 @@ export const StyledLi = styled.li`
     position: absolute;
     top: 8px;
     transform: scale(${(props: iLiProps) => (props.height < 15 ? 1.2 : 1.0)});
+    animation-name: pokeShow;
+    animation-duration: 1s;
+    animation-timing-function: ease;
+    animation-fill-mode: forwards;
+
+    @keyframes pokeShow {
+      from {
+        opacity: 0;
+      }
+      to {
+        opacity: 1;
+      }
+    }
   }
 
   div {

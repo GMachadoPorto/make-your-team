@@ -11,6 +11,7 @@ interface iPokeProvider {
   pokemon: iPokeInfo[];
   pokeLoading: boolean;
   pokeTeam: iPokeTeam[];
+  pokeTeamSlots: number;
   getPokeData: (data: string) => Promise<iPokeData>;
   addPokeTeam: () => void;
   removePokemon: (data: number) => void;
@@ -22,6 +23,7 @@ export const PokeProvider = ({ children }: iPokeProviderProps) => {
   const [pokemon, setPokemon] = useState([] as iPokeInfo[]);
   const [pokeLoading, setPokeLoading] = useState(true);
   const [pokeTeam, setPokeTeam] = useState([] as iPokeTeam[]);
+  const [pokeTeamSlots, setPokeTeamSlots] = useState(6);
   const { atackGroup, modalData, closeModal } = useContext(ModalContext);
 
   useEffect(() => {
@@ -73,6 +75,7 @@ export const PokeProvider = ({ children }: iPokeProviderProps) => {
 
     if (pokeTeam.length < 6) {
       setPokeTeam([...pokeTeam, newPoke]);
+      setPokeTeamSlots(pokeTeamSlots - 1);
       closeModal();
     }
   };
@@ -83,6 +86,7 @@ export const PokeProvider = ({ children }: iPokeProviderProps) => {
     newArray.splice(position, 1);
 
     setPokeTeam(newArray);
+    setPokeTeamSlots(pokeTeamSlots + 1);
   };
 
   return (
@@ -91,6 +95,7 @@ export const PokeProvider = ({ children }: iPokeProviderProps) => {
         pokemon,
         pokeLoading,
         pokeTeam,
+        pokeTeamSlots,
         getPokeData,
         addPokeTeam,
         removePokemon,

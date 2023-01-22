@@ -15,7 +15,7 @@ export const StyledDiv = styled.div`
     border-radius: 8px;
     outline: none;
     border: none;
-    background-color: #d9d9d9;
+    background-color: var(--color-grey-2);
 
     &:focus {
       border: 1px solid #343434;
@@ -27,7 +27,7 @@ export const StyledDiv = styled.div`
     width: max-content;
     height: 40px;
     padding: 0 8px;
-    background-color: #d9d9d9;
+    background-color: var(--color-grey-2);
     border-radius: 8px;
 
     &:hover {

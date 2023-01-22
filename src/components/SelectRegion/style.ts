@@ -7,5 +7,5 @@ export const StyledSelect = styled.select`
   border-radius: 8px;
   border: none;
   outline: none;
-  background-color: #d9d9d9;
+  background-color: var(--color-grey-2);
 `;

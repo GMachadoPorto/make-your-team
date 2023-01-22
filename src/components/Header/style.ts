@@ -6,7 +6,7 @@ export const StyledHeader = styled.header`
   padding: 0 8px;
   display: flex;
   align-items: center;
-  box-shadow: 0px 2px 4px 0px rgba(0, 0, 0, 0.5);
+  box-shadow: 0px 2px 4px 0px var(--color-shadow-1);
 
   > div {
     display: flex;
