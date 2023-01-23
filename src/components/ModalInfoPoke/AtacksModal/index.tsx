@@ -1,7 +1,9 @@
-import { useContext, useState } from "react";
+import { useContext } from "react";
 import { useForm } from "react-hook-form";
+import { yupResolver } from "@hookform/resolvers/yup";
 import { ModalContext } from "../../../context/ModalContext";
 import { iFormAtack } from "../../../context/ModalContext/interfaces";
+import { atackSchema } from "./atackSchema";
 import { StyledSection } from "./style";
 
 export const AtackModal = () => {
@@ -14,7 +16,9 @@ export const AtackModal = () => {
     removeAtack,
   } = useContext(ModalContext);
 
-  const { register, handleSubmit } = useForm<iFormAtack>();
+  const { register, handleSubmit } = useForm<iFormAtack>({
+    resolver: yupResolver(atackSchema),
+  });
 
   return (
     <StyledSection className="secondSec">
