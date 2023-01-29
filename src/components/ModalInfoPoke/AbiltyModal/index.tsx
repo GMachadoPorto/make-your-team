@@ -1,4 +1,4 @@
-import { useContext, useState } from "react";
+import { useContext} from "react";
 import { ModalContext } from "../../../context/ModalContext";
 import { StyledDiv } from "./style";
 

@@ -1,9 +1,9 @@
 import pokeball from "../../../assets/pokeball.svg";
 import { PokeContext } from "../../../context/PokeContext";
-import { iPokeTeam } from "../../../context/PokeContext/interfaces";
 import { TypesPoke } from "../../TypesPoke";
 import { StyledLi } from "./style";
 import { useContext } from "react";
+import { iPokeTeam } from "../../../services/interfaces";
 
 interface iCardPokeTeam {
   data: iPokeTeam;

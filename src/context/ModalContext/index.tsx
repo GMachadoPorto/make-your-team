@@ -3,14 +3,14 @@ import {
   iWeak,
   findWeak,
 } from "../../components/ModalInfoPoke/TypesModal/handleType";
-import { pokeApi } from "../../services/pokeApi";
-import { iPokeData } from "../PokeContext/interfaces";
 import {
-  iAbilityEffect,
-  iAtackEffect,
+  iPokeData,
   iAtackStats,
   iFormAtack,
-} from "./interfaces";
+  iAbilityEffect,
+  iAtackEffect,
+} from "../../services/interfaces";
+import { pokeApi } from "../../services/pokeApi";
 
 interface iModalProviderProps {
   children: React.ReactNode;

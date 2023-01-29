@@ -6,12 +6,15 @@ export const StyledSection = styled.section`
 
   > div {
     width: 100%;
+    height: 45vh;
     background-color: var(--color-grey-2);
+    display: flex;
+    align-items: center;
   }
 
   ul {
     width: 100%;
-    height: 45vh;
+    height: 100%;
     padding: 12px 0;
     overflow-y: auto;
     display: grid;
@@ -51,6 +54,19 @@ export const StyledSection = styled.section`
     &::-webkit-scrollbar-thumb {
       background-color: var(--color-scroll);
       border-radius: 8px;
+    }
+  }
+
+  .loading {
+    height: 200px;
+    width: 200px;
+    margin: 0 auto;
+    animation: pokeLoading 2s infinite;
+
+    @keyframes pokeLoading {
+      to {
+        transform: rotate(1turn);
+      }
     }
   }
 `;

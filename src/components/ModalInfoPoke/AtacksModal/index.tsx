@@ -2,9 +2,9 @@ import { useContext } from "react";
 import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import { ModalContext } from "../../../context/ModalContext";
-import { iFormAtack } from "../../../context/ModalContext/interfaces";
 import { atackSchema } from "./atackSchema";
 import { StyledSection } from "./style";
+import { iFormAtack } from "../../../services/interfaces";
 
 export const AtackModal = () => {
   const {

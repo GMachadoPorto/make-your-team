@@ -1,25 +1,24 @@
 import { StyledSection } from "./style";
-
 import { useContext } from "react";
-
 import { PokeContext } from "../../context/PokeContext";
 import { CardPokemon } from "./CardPokemon";
+import pokeball from "../../assets/pokeball.svg";
 
 export const ListPokemon = () => {
-  const { pokemon, pokeLoading } = useContext(PokeContext);
-
-  if (pokeLoading) {
-    return null;
-  }
+  const { pokeLoading, pokemonFilter } = useContext(PokeContext);
 
   return (
     <StyledSection>
       <div className="container">
-        <ul>
-          {pokemon.map((element, index) => {
-            return <CardPokemon key={index} url={element.url.slice(26)} />;
-          })}
-        </ul>
+        {!pokeLoading ? (
+          <ul>
+            {pokemonFilter.map((element, index) => {
+              return <CardPokemon key={index} data={element} />;
+            })}
+          </ul>
+        ) : (
+          <img className="loading" src={pokeball} alt="pokeball" />
+        )}
       </div>
     </StyledSection>
   );

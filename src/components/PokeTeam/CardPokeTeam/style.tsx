@@ -41,6 +41,14 @@ export const StyledLi = styled.li`
     }
   }
 
+  p {
+    width: 100%;
+    text-align: center;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+
   div {
     width: 100%;
     display: flex;

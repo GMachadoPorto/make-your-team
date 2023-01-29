@@ -17,6 +17,10 @@ export const StyledLi = styled.li`
   justify-content: space-between;
   position: relative;
   background-color: var(--color-grey-1);
+  animation-name: pokeShow;
+  animation-duration: 1s;
+  animation-timing-function: ease;
+  animation-fill-mode: forwards;
 
   img {
     width: 80px;
@@ -28,18 +32,26 @@ export const StyledLi = styled.li`
     top: 8px;
     transform: scale(${(props: iLiProps) => (props.height < 15 ? 1.2 : 1.0)});
     animation-name: pokeShow;
-    animation-duration: 1s;
+    animation-duration: 2s;
     animation-timing-function: ease;
     animation-fill-mode: forwards;
+  }
 
-    @keyframes pokeShow {
-      from {
-        opacity: 0;
-      }
-      to {
-        opacity: 1;
-      }
+  @keyframes pokeShow {
+    from {
+      opacity: 0;
     }
+    to {
+      opacity: 1;
+    }
+  }
+
+  p {
+    width: 100%;
+    text-align: center;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
   }
 
   div {
