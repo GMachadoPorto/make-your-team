@@ -157,6 +157,7 @@ export const PokeProvider = ({ children }: iPokeProviderProps) => {
   };
 
   const attPokemonFilter = (name: string) => {
+    setPokeLoading(true);
     setPokemonFilter([]);
     setPokemonSearch(name);
     setTotalCards(12);
