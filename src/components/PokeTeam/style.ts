@@ -39,6 +39,7 @@ export const StyledSection = styled.section`
     padding: 4px;
     margin: 0 auto;
     border-radius: 8px;
+    box-shadow: 2px 2px 4px 0px var(--color-shadow-1);
     display: flex;
     flex-direction: column;
     align-items: center;

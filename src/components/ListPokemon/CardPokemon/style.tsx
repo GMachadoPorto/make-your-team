@@ -11,6 +11,7 @@ export const StyledLi = styled.li`
   padding: 4px;
   margin: 0 auto;
   border-radius: 4px;
+  box-shadow: 2px 2px 4px 0px var(--color-shadow-1);
   display: flex;
   flex-direction: column;
   align-items: center;

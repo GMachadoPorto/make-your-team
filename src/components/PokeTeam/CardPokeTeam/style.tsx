@@ -10,6 +10,7 @@ export const StyledLi = styled.li`
   padding: 4px;
   margin: 0 auto;
   border-radius: 8px;
+  box-shadow: 2px 2px 4px 0px var(--color-shadow-1);
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -58,12 +59,11 @@ export const StyledLi = styled.li`
   button {
     width: 16px;
     height: 16px;
-    border: 2px solid #9d0b0b;
     border-radius: 50%;
     position: absolute;
     top: 4px;
     right: 4px;
     font-size: 12px;
-    background-color: #ffffff;
+    background-color: var(--color-grey-2);
   }
 `;

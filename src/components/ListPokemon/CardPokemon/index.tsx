@@ -16,9 +16,7 @@ export const CardPokemon = ({ data }: iCardPokemon) => {
     <StyledLi height={data.height} onClick={() => openModal(data)}>
       <img src={pokeball} alt="pokeball" />
       <img src={data.sprite} alt={data.name} className="pokemon" />
-      <p>
-        {formatName(data.name)} {data.newIndex}
-      </p>
+      <p>{formatName(data.name)}</p>
       <div>
         {data.types.map((element, index) => (
           <TypesPoke key={index} name={element.type.name} />

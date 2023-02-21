@@ -31,7 +31,7 @@ interface iModalProvider {
   formAtack: (data: iFormAtack) => void;
   removeAtack: (data: iAtackStats) => void;
   handleWeak: () => void;
-  formatName: (data:string)=>string
+  formatName: (data: string) => string;
 }
 
 export const ModalContext = createContext({} as iModalProvider);
@@ -119,7 +119,12 @@ export const ModalProvider = ({ children }: iModalProviderProps) => {
         (element: iAtackEffect) => element.language.name === "en"
       );
 
-      description = atackData.effect;
+      description = atackData.effect.includes("$effect_chance")
+        ? atackData.effect.replace(
+            "$effect_chance",
+            `${resp.data.effect_chance}`
+          )
+        : atackData.effect;
     } catch (err) {
       console.log(err);
     } finally {
@@ -272,7 +277,7 @@ export const ModalProvider = ({ children }: iModalProviderProps) => {
         formAtack,
         removeAtack,
         handleWeak,
-        formatName
+        formatName,
       }}
     >
       {children}
