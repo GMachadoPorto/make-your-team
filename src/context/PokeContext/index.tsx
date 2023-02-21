@@ -35,7 +35,7 @@ export const PokeProvider = ({ children }: iPokeProviderProps) => {
   const [pokeTeam, setPokeTeam] = useState([] as iPokeTeam[]);
   const [pokeTeamSlots, setPokeTeamSlots] = useState(6);
   const [pokemonFilter, setPokemonFilter] = useState([] as iPokeNewData[]);
-  const [totalCards, setTotalCards] = useState(24);
+  const [totalCards, setTotalCards] = useState(0);
   const [pokemonSearch, setPokemonSearch] = useState("");
   const { atackGroup, modalData, closeModal } = useContext(ModalContext);
 
@@ -52,7 +52,7 @@ export const PokeProvider = ({ children }: iPokeProviderProps) => {
 
         if (pokedex) {
           setPokemon(pokedex);
-          setTotalCards(24);
+          setTotalCards(12);
         }
       } catch (err) {
         console.log(err);
@@ -64,41 +64,40 @@ export const PokeProvider = ({ children }: iPokeProviderProps) => {
   useEffect(() => {
     const getPokemonData = async () => {
       try {
-        const allPokeData: iPokeNewData[] = [];
-
-        let baseInfoPokemon = [] as iPokeInfo[];
-
-        if (pokemonSearch === "") {
-          baseInfoPokemon = pokemon;
-        } else {
-          baseInfoPokemon = pokemon.filter((element) =>
-            element.name.includes(pokemonSearch)
-          );
-        }
-
-        const limitPokemon: number =
-          baseInfoPokemon.length < totalCards
-            ? baseInfoPokemon.length
-            : totalCards;
-
-        for (let i = totalCards - 24; i < limitPokemon; i++) {
-          const urlIndexPokemon: string = baseInfoPokemon[i].url.slice(42);
-
-          const pokeData: iPokeData = await getPokeData(urlIndexPokemon);
-
-          const newPokeData: iPokeNewData = { ...pokeData, newIndex: i };
-
-          allPokeData.push(newPokeData);
-        }
-
-        let allPokemon: iPokeNewData[] = allPokeData.sort((x, y) =>
-          x.newIndex < y.newIndex ? -1 : 0
-        );
-
-        setPokemonFilter([...pokemonFilter].concat(allPokemon));
-
-        console.log(pokemonFilter);
         if (pokemon.length > 0) {
+          const allPokeData: iPokeNewData[] = [];
+
+          let baseInfoPokemon = [] as iPokeInfo[];
+
+          if (pokemonSearch === "") {
+            baseInfoPokemon = pokemon;
+          } else {
+            baseInfoPokemon = pokemon.filter((element) =>
+              element.name.includes(pokemonSearch)
+            );
+          }
+
+          const limitPokemon: number =
+            baseInfoPokemon.length < totalCards
+              ? baseInfoPokemon.length
+              : totalCards;
+
+          for (let i = totalCards - 12; i < limitPokemon; i++) {
+            const urlIndexPokemon: string = baseInfoPokemon[i].url.slice(42);
+
+            const pokeData: iPokeData = await getPokeData(urlIndexPokemon);
+
+            const newPokeData: iPokeNewData = { ...pokeData, newIndex: i };
+
+            allPokeData.push(newPokeData);
+          }
+
+          let allPokemon: iPokeNewData[] = allPokeData.sort((x, y) =>
+            x.newIndex < y.newIndex ? -1 : 0
+          );
+
+          setPokemonFilter([...pokemonFilter, ...allPokemon]);
+
           setPokeLoading(false);
         }
       } catch (error) {
@@ -160,13 +159,13 @@ export const PokeProvider = ({ children }: iPokeProviderProps) => {
   const attPokemonFilter = (name: string) => {
     setPokemonFilter([]);
     setPokemonSearch(name);
-    setTotalCards(24);
+    setTotalCards(12);
   };
 
   const attTotalCards = () => {
     setTotalCards((oldValue) => {
       let newValue: number =
-        oldValue + 24 < pokemon.length ? oldValue + 24 : pokemon.length;
+        oldValue + 12 < pokemon.length ? oldValue + 12 : pokemon.length;
 
       return newValue;
     });
