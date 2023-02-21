@@ -4,6 +4,7 @@ import { TypesPoke } from "../../TypesPoke";
 import { StyledLi } from "./style";
 import { useContext } from "react";
 import { iPokeTeam } from "../../../services/interfaces";
+import { ModalContext } from "../../../context/ModalContext";
 
 interface iCardPokeTeam {
   data: iPokeTeam;
@@ -12,11 +13,7 @@ interface iCardPokeTeam {
 
 export const CardPokeTeam = ({ data, position }: iCardPokeTeam) => {
   const { removePokemon } = useContext(PokeContext);
-
-  const formatName = (name: string) => {
-    let newName = name[0].toUpperCase() + name.slice(1).toLowerCase();
-    return newName;
-  };
+  const { formatName } = useContext(ModalContext);
 
   return (
     <StyledLi height={data.height}>

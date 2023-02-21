@@ -5,12 +5,7 @@ import { ModalContext } from "../../../context/ModalContext";
 import { TypesPoke } from "../../TypesPoke";
 
 export const HeaderModal = () => {
-  const { modalData } = useContext(ModalContext);
-
-  const formatName = (name: string) => {
-    let newName = name[0].toUpperCase() + name.slice(1).toLowerCase();
-    return newName;
-  };
+  const { modalData, formatName } = useContext(ModalContext);
 
   return (
     <StyledHeader>

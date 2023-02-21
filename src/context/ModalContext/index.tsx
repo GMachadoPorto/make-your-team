@@ -31,6 +31,7 @@ interface iModalProvider {
   formAtack: (data: iFormAtack) => void;
   removeAtack: (data: iAtackStats) => void;
   handleWeak: () => void;
+  formatName: (data:string)=>string
 }
 
 export const ModalContext = createContext({} as iModalProvider);
@@ -249,6 +250,11 @@ export const ModalProvider = ({ children }: iModalProviderProps) => {
     setLoadingWeaks(false);
   };
 
+  const formatName = (name: string) => {
+    const newName: string = name[0].toUpperCase() + name.slice(1).toLowerCase();
+    return newName;
+  };
+
   return (
     <ModalContext.Provider
       value={{
@@ -266,6 +272,7 @@ export const ModalProvider = ({ children }: iModalProviderProps) => {
         formAtack,
         removeAtack,
         handleWeak,
+        formatName
       }}
     >
       {children}

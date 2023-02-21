@@ -7,7 +7,7 @@ export const PokeTeam = () => {
   const { pokeTeam, pokeTeamSlots } = useContext(PokeContext);
 
   const emptySlots = () => {
-    let slots = [];
+    let slots = [] as JSX.Element[];
     for (let i = 0; i < pokeTeamSlots; i++) {
       slots.push(
         <li className="emptyBall" key={i}>
@@ -18,7 +18,7 @@ export const PokeTeam = () => {
     return slots;
   };
 
-  let slots = emptySlots();
+  const slots: JSX.Element[] = emptySlots();
 
   return (
     <StyledSection>
