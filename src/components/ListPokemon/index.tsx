@@ -1,5 +1,5 @@
 import { StyledSection } from "./style";
-import { useContext, useEffect, useRef } from "react";
+import { useContext } from "react";
 import { PokeContext } from "../../context/PokeContext";
 import { CardPokemon } from "./CardPokemon";
 import pokeball from "../../assets/pokeball.svg";

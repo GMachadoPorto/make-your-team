@@ -4,8 +4,7 @@ export const Header = () => {
   return (
     <StyledHeader>
       <div className="container">
-        <p>Logo</p>
-        <p>Perfil</p>
+        <p>Make your Team</p>
       </div>
     </StyledHeader>
   );

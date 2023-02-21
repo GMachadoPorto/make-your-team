@@ -10,7 +10,7 @@ export const StyledHeader = styled.header`
 
   > div {
     display: flex;
-    justify-content: space-between;
+    justify-content: center;
     align-items: center;
   }
 `;
