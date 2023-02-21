@@ -77,12 +77,12 @@ export const PokeProvider = ({ children }: iPokeProviderProps) => {
             );
           }
 
-          const limitPokemon: number =
-            baseInfoPokemon.length < totalCards
+          const limitValue: number =
+            baseInfoPokemon.length <= totalCards
               ? baseInfoPokemon.length
               : totalCards;
 
-          for (let i = totalCards - 12; i < limitPokemon; i++) {
+          for (let i = pokemonFilter.length; i < limitValue; i++) {
             const urlIndexPokemon: string = baseInfoPokemon[i].url.slice(42);
 
             const pokeData: iPokeData = await getPokeData(urlIndexPokemon);
